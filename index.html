@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="main.css">
+</head> 
+<body class="bg-linear-60 from-[#1d2b53] to-[#7e2553]">
+  <main class="flex items-center justify-center flex-col p-8 gap-10">
+    
+    <div class="flex flex-col text-center">
+      <h1 class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00] text-3xl">PIEDRA PAPEL O TIJERA</h1>
+      <h2 class="text-[#00ffff] text-shadow-md text-shadow-[#00ffff] text-xl">LE PODRÁS GANAR A LA PC</h2>
+    </div>
+
+    <!--Zona de Juego-->
+    <div class="flex justify-center items-center gap-12 py-5 px-12 border border-solid border-[#94a3b8] rounded-lg bg-[#220f43]/60">
+      <div class="flex justify-center items-center flex-col gap-2.5">
+        <h2 class="text-[#00ffff] text-shadow-md text-shadow-[#00ffff] text-lg">Jugador</h2>
+        <div class="py-9 px-6 border border-solid rounded-lg border-[#00ffff] shadow-md shadow-[#00ffff] text-shadow-lg text-shadow-[#00ffff]">
+          <i id="jugadorEleccion" class="fa-solid fa-hand fa-5x"></i>
+        </div>
+      </div>
+
+      <h2 class="text-3xl text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">VS</h2>
+
+      <div class="flex justify-center items-center flex-col gap-2.5">
+        <h2 class="text-[#ff00ff] text-shadow-md text-shadow-[#ff00ff] text-lg">PC</h2>
+        <div class="py-9 px-6 border border-solid rounded-lg border-[#ff00ff] shadow-md shadow-[#ff00ff] text-shadow-md text-shadow-[#ff00ff]">
+          <i id="pcEleccion" class="fa-solid fa-hand-scissors fa-5x"></i>
+        </div>  
+      </div>
+    </div>
+
+    <!--Elecciones del Jugador-->
+    <div class="flex justify-center items-center gap-14">
+      <button onclick="jugadorOpcion('fa-hand-fist')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60">
+        <i class="fa-solid fa-hand-fist fa-4x"></i>
+      </button>
+      <button onclick="jugadorOpcion('fa-hand')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60">
+        <i class="fa-solid fa-hand fa-4x"></i>
+      </button>
+      <button onclick="jugadorOpcion('fa-hand-scissors')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60">
+        <i class="fa-solid fa-hand-scissors fa-4x"></i>
+      </button>
+    </div>
+  </main>
+  
+  <script src="main.js"></script>
+</body>
+</html>
