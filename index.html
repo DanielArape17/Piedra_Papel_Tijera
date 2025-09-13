@@ -9,44 +9,85 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <link rel="stylesheet" href="main.css">
 </head> 
-<body class="bg-linear-60 from-[#1d2b53] to-[#7e2553]">
-  <main class="flex items-center justify-center flex-col p-8 gap-10">
+<body class="bg-linear-60 from-[#1d2b53] to-[#7e2553] h-screen">
+  <main class="flex flex-col items-center justify-center gap-6 p-3">
     
     <div class="flex flex-col text-center">
       <h1 class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00] text-3xl">PIEDRA PAPEL O TIJERA</h1>
       <h2 class="text-[#00ffff] text-shadow-md text-shadow-[#00ffff] text-xl">LE PODRÁS GANAR A LA PC</h2>
     </div>
 
-    <!--Zona de Juego-->
-    <div class="flex justify-center items-center gap-12 py-5 px-12 border border-solid border-[#94a3b8] rounded-lg bg-[#220f43]/60">
-      <div class="flex justify-center items-center flex-col gap-2.5">
-        <h2 class="text-[#00ffff] text-shadow-md text-shadow-[#00ffff] text-lg">Jugador</h2>
-        <div class="py-9 px-6 border border-solid rounded-lg border-[#00ffff] shadow-md shadow-[#00ffff] text-shadow-lg text-shadow-[#00ffff]">
-          <i id="jugadorEleccion" class="fa-solid fa-hand fa-5x"></i>
+    
+    <div class="flex flex-col-reverse lg:flex-row gap-4">
+      <!--Ultimas 5 Partidas-->
+      <div class="flex flex-col max-h-[232px] gap-2 py-6 px-2 items-center overflow-auto border border-[#94a3b8] rounded-lg bg-[#220f43]/60">
+        <h2 class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00] px-4">ULTIMAS PARTIDAS</h2>
+        <div id="registroContainer" class="flex flex-col-reverse gap-2.5">
+          
         </div>
       </div>
 
-      <h2 class="text-3xl text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">VS</h2>
+      <div class="flex flex-col gap-5">
+        <!--Zona de Juego-->
+        <div class="relative flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-12 py-5 px-12 border border-solid border-[#94a3b8] rounded-lg bg-[#220f43]/60">
+          <div class="flex justify-center items-center flex-col gap-2.5">
+            <h2 class="text-[#00ffff] text-shadow-md text-shadow-[#00ffff] text-lg">Jugador</h2>
+            <div class="py-9 px-6 border border-solid rounded-lg border-[#00ffff] shadow-md shadow-[#00ffff] text-shadow-lg text-shadow-[#00ffff]">
+              <i id="jugadorEleccion" class="fa-solid fa-hand fa-5x"></i>
+            </div>
+          </div>
 
-      <div class="flex justify-center items-center flex-col gap-2.5">
-        <h2 class="text-[#ff00ff] text-shadow-md text-shadow-[#ff00ff] text-lg">PC</h2>
-        <div class="py-9 px-6 border border-solid rounded-lg border-[#ff00ff] shadow-md shadow-[#ff00ff] text-shadow-md text-shadow-[#ff00ff]">
-          <i id="pcEleccion" class="fa-solid fa-hand-scissors fa-5x"></i>
-        </div>  
+          <h2 class="text-3xl text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">VS</h2>
+
+          <div class="flex justify-center items-center flex-col gap-2.5">
+            <h2 class="text-[#ff00ff] text-shadow-md text-shadow-[#ff00ff] text-lg">PC</h2>
+            <div class="py-9 px-6 border border-solid rounded-lg border-[#ff00ff] shadow-md shadow-[#ff00ff] text-shadow-md text-shadow-[#ff00ff]">
+              <i id="pcEleccion" class="fa-solid fa-hand-scissors fa-5x"></i>
+            </div>  
+          </div>
+        </div>
+
+        <div class="py-4 bg-[#220f43]/60 rounded-lg border-2 border-[#94a3b8]">
+
+          <p id="anuncioGANASTE" class="hidden text-center font-extrabold text-3xl animate-pulse text-[#3fb16d] text-shadow-md text-shadow-[#3fb16d]">GANASTE</p>
+
+          <p  id="anuncioEMPATE" class="hidden text-center font-extrabold text-3xl animate-pulse text-[#b75ae6] text-shadow-md text-shadow-[#b75ae6]">EMPATE</p>
+
+          <p id="anuncioPERDISTE" class="hidden text-center font-extrabold text-3xl animate-pulse text-[#d47677] text-shadow-md text-shadow-[#d47677]">PERDISTE</p>
+          
+          <p id="anuncioNoJugado" class="text-center font-extrabold text-lg text-shadow-md text-shadow-[#94a3b8]">Aun no se ha jugado</p>
+        </div>
+
+        <!--Elecciones del Jugador-->
+        <div class="flex justify-center items-center gap-14">
+          <button onclick="jugadorOpcion('fa-hand-fist')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60 cursor-pointer duration-300 transition-all hover:-translate-y-2 hover:scale-110 hover:border-[#ffcc00] hover:text-[#ffcc00] hover:text-shadow-[#ffcc00] hover:shadow-[0_4px_16px_#00ffff]">
+            <i class="fa-solid fa-hand-fist fa-4x"></i>
+          </button>
+          <button onclick="jugadorOpcion('fa-hand')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60 cursor-pointer duration-300 transition-all hover:-translate-y-2 hover:scale-110 hover:border-[#ffcc00] hover:text-[#ffcc00] hover:text-shadow-[#ffcc00] hover:shadow-[0_4px_16px_#00ffff]">
+            <i class="fa-solid fa-hand fa-4x"></i>
+          </button>
+          <button onclick="jugadorOpcion('fa-hand-scissors')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60 cursor-pointer duration-300 transition-all hover:-translate-y-2 hover:scale-110 hover:border-[#ffcc00] hover:text-[#ffcc00] hover:text-shadow-[#ffcc00] hover:shadow-[0_4px_16px_#00ffff]">
+            <i class="fa-solid fa-hand-scissors fa-4x"></i>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <!--Elecciones del Jugador-->
-    <div class="flex justify-center items-center gap-14">
-      <button onclick="jugadorOpcion('fa-hand-fist')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60">
-        <i class="fa-solid fa-hand-fist fa-4x"></i>
-      </button>
-      <button onclick="jugadorOpcion('fa-hand')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60">
-        <i class="fa-solid fa-hand fa-4x"></i>
-      </button>
-      <button onclick="jugadorOpcion('fa-hand-scissors')" class="border-2 border-solid border-[#00ffff] rounded-lg px-2 py-4 text-[#00ffff1a] text-shadow-md text-shadow-[#00ffff] bg-[#220f43]/60">
-        <i class="fa-solid fa-hand-scissors fa-4x"></i>
-      </button>
+      <!--Estadisticas-->
+      <div class="flex flex-col gap-1.5 justify-evenly lg:max-h-[232px] px-2 py-4 items-center border border-[#94a3b8] rounded-lg bg-[#220f43]/60">
+        <h2 class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">ESTADISTICAS</h2>
+        <div class="flex gap-2">
+          <h3 class="text-[#3fb16d] text-shadow-md text-shadow-[#3fb16d]">GANADOS</h3>
+          <p id="ganados" class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">0</p>
+        </div>
+        <div class="flex gap-2">
+          <h3 class="text-[#b75ae6] text-shadow-md text-shadow-[#b75ae6]">EMPATADOS</h3>
+          <p id="empatados" class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">0</p>
+        </div>
+        <div class="flex gap-2 ">
+          <h3 class="text-[#d47677] text-shadow-md text-shadow-[#d47677]">PERDIDOS</h3>
+          <p id="perdidos" class="text-[#ffcc00] text-shadow-md text-shadow-[#ffcc00]">0</p>
+        </div>
+      </div>
     </div>
   </main>
   
